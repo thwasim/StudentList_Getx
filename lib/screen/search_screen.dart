@@ -13,9 +13,7 @@ class Searchscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-// ==============set the appbar===========//
           backgroundColor: const Color.fromARGB(255, 106, 110, 69),
-//=================set the search bar ================//
           title: Container(
             width: double.infinity,
             height: 40,

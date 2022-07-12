@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:main_project2/functions/db_functions.dart';
 import 'package:main_project2/screen/screen_home.dart';
 
-// ignore: must_be_immutable
 class Editescreen extends StatelessWidget {
   final String name;
   final String age;
@@ -74,7 +73,7 @@ class Editescreen extends StatelessWidget {
                 ),
                 CircleAvatar(
                     radius: 80,
-                    child: img.trim().isNotEmpty
+                    child: imagesss.trim().isNotEmpty
                         ? CircleAvatar(
                             radius: 80,
                             backgroundImage: MemoryImage(

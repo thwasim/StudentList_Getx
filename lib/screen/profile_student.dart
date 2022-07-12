@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:main_project2/functions/db_functions.dart';
 import 'package:main_project2/screen/edite_screen.dart';
+import 'package:main_project2/screen/image.dart';
 import 'package:main_project2/screen/screen_home.dart';
 
 class Profilhome extends StatelessWidget {
@@ -94,19 +94,22 @@ class Profilhome extends StatelessWidget {
                   height: 10,
                 ),
 //===========show the profile images in profile===============//
-                CircleAvatar(
-                    radius: 80,
-                    child: img.trim().isNotEmpty
-                        ? CircleAvatar(
-                            radius: 80,
-                            backgroundImage: MemoryImage(
-                              const Base64Decoder().convert(imagesss),
-                            ),
-                          )
-                        : const SizedBox(
-                            width: 50,
-                            height: 50,
-                          )),
+                InkWell(
+                  onTap:(){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>Imageshow(imagesss: imagesss,)));
+                  },
+                  child: CircleAvatar(
+                      radius: 80,
+                      child: imagesss.trim().isNotEmpty
+                          ? CircleAvatar(
+                              radius: 80,
+                              backgroundImage: MemoryImage(
+                                const Base64Decoder().convert(imagesss),
+                              ),
+                            )
+                          : Image.asset('assets/image1 (2).png'),
+                          ),
+                ),
                 const SizedBox(
                   height: 30,
                 ),

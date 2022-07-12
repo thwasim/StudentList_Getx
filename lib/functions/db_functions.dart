@@ -1,8 +1,5 @@
-import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:main_project2/model/data_model.dart';
 
 //==========screenRefreeshing===========//
@@ -44,22 +41,3 @@ Future <void> addstudent(Studentmodel value) async{
   }
   
   
-//==========image converting string function ============\\
-
-  String img =' ';
-
-   addimage(XFile pickimage) async{
-     // ignore: unnecessary_null_comparison
-     if(pickimage == null){
-       return;
-     }else{
-      
-       final bytes = File(pickimage.path).readAsBytesSync();
-       img = base64Encode(bytes);
-     }
-   }
- 
-
-
-
-

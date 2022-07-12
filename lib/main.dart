@@ -4,11 +4,7 @@ import 'package:main_project2/functions/db_functions.dart';
 import 'package:main_project2/model/data_model.dart';
 import 'package:main_project2/splash.dart';
 
-
 Future<void> main() async{
-
-//============register the hive code============//
-
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   if(!Hive.isAdapterRegistered(StudentmodelAdapter().typeId)){

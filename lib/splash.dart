@@ -19,18 +19,18 @@ class _ScreensplahState extends State<Screensplah> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
         children:  [
           Image.network('https://cdn.dribbble.com/users/1378322/screenshots/3918042/list-app-icon.png'),
          const SizedBox(height:200 ,),
           Image.network('https://i.gifer.com/XoCu.gif')
         ],
-        
       ),
     );
   }
 
   Future<void> gohome() async {
-    await Future.delayed(const Duration(seconds: 6));
+    await Future.delayed(const Duration(seconds: 5));
     Navigator.of(context).pushReplacement(MaterialPageRoute(
       builder: (context) =>const Screenhome(),
     ));

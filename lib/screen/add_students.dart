@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -25,7 +26,7 @@ class _AddscreenState extends State<Addscreen> {
       backgroundColor: Colors.black38,
 //===============set the app bar==============//
       appBar: AppBar(
-        backgroundColor:const  Color.fromARGB(255, 106, 110, 69),
+        backgroundColor: const Color.fromARGB(255, 106, 110, 69),
       ),
 //=============set the body==========//
       body: Container(
@@ -166,7 +167,7 @@ class _AddscreenState extends State<Addscreen> {
           children: [
             imagefile == null
                 ? Image.asset(
-                    'assets/image1.png',
+                    'assets/image1 (2).png',
                     width: 140,
                     height: 140,
                   )
@@ -222,7 +223,7 @@ class _AddscreenState extends State<Addscreen> {
             ),
             const Text(
               'Choice Profile Photo',
-              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 10,
@@ -237,7 +238,8 @@ class _AddscreenState extends State<Addscreen> {
                     onPressed: () {
                       takeimage();
                     },
-                    icon: const Icon(Icons.camera, color: Color.fromARGB(255, 255, 255, 255)),
+                    icon: const Icon(Icons.camera,
+                        color: Color.fromARGB(255, 255, 255, 255)),
                     label: const Text(
                       'Camera',
                       style: TextStyle(color: Colors.white),
@@ -257,8 +259,7 @@ class _AddscreenState extends State<Addscreen> {
                       label: const Text(
                         'Gallery',
                         style: TextStyle(color: Colors.white),
-                      )
-                   ),
+                      )),
                 ],
               ),
             ),
@@ -283,4 +284,25 @@ class _AddscreenState extends State<Addscreen> {
 //==========add the full detiles=============//
     addstudent(_student);
   }
+
+   String img =' ';
+
+   addimage(XFile pickimage) async{
+     // ignore: unnecessary_null_comparison
+     if(pickimage == null){
+       return;
+     }else{
+      
+      
+
+       final bytes = File(pickimage.path).readAsBytesSync();
+      
+       setState(() {
+          img = base64Encode(bytes);
+       });
+       
+       return img;
+     }
+   }
+ 
 }
